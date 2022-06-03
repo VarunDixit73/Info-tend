@@ -1,0 +1,96 @@
+<style>
+.navbar{
+  background-image: url('https://media3.giphy.com/media/jaOXKCxtBPLieRLI0c/200.gif');
+}
+.navbar-nav,
+.navbar-nav li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.navbar-nav {
+  height: 55px;
+  background-color: #000;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+.navbar-nav li a {
+  display: block;
+  height: 85px;
+}
+.navbar-nav .t{
+  display: block;
+  padding-top: 20px;
+  padding-left: 15px;
+  font-family: Verdana, Geneva, sans-serif;
+  transition: all 0.2s ease-in-out 0s;
+}
+.navbar-nav .t {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
+}
+
+.navbar-nav li:hover .t,
+.navbar-nav li:hover .d {
+  color: #fff;
+}
+.navbar-nav li {
+  height: 85;
+  width: 150px;
+  min-width: 150px;
+  background: #f90;
+  float: left;
+  transition: all 0.5s ease-in-out 0s;
+}
+.navbar-nav li:hover {
+  width: 700px;
+}
+.navbar-nav .m1 {
+  background: #020335;
+  text-align: center;
+}
+.navbar-nav .m2 {
+  background: #190e49;
+  text-align: center;
+}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark purblue sticky-top">
+    <a class="navbar-brand" href="{{url_for('index')}}"></a>
+    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu"
+        aria-expanded="false" aria-label="Toggle digipodum nav"><i class="fas fa-bars    "></i></button>
+    <div class="collapse navbar-collapse" id="mainmenu">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 mx-auto">
+        <li class="m1"><a href="{{url_for('index')}}">
+            <span class="t">HOME</span>
+            </a></li>
+          <li class="m2"><a href="/input">
+            <span class="t">About </span>
+            </a></li>
+          {% if current_user.is_anonymous %}
+          <li class="m1"><a href="/login">
+            <span class="t">Login</span>
+          </a></li>
+          <li class="m2"><a href="/register">
+            <span class="t">Create free account</span>
+          </a></li>
+          {% else %}
+          <li class="m1"><a href="/upload">
+            <span class="t">Upload</span>
+            </a></li>
+          <li class="m2"><a href="{{url_for('user',username=current_user.username)}}">
+            <span class="t">Profile</span>
+          </a></li>
+          <li class="m1"><a href="/logout">
+            <span class="t">Logout</span>
+          </a></li>
+          {% endif %}
+      </ul>
+    </div>
+  </nav>

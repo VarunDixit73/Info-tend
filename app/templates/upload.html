@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    body{
+        background-image: url('https://images.unsplash.com/photo-1529251333259-d36cccaf22ea?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aGFuZHdyaXRpbmd8ZW58MHx8MHx8&w=1000');
+        background-size: cover;
+    }
+    .container .row .col{
+        padding-left: 100px;
+    }
+    .container .row .col-md-8 form{
+        background-color: rgba(39, 36, 36, 0.911);
+        color: aliceblue;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<div class="container p-3">
+    <div class="row">
+        <div class="col-md-8">
+            {% include "notify.html" %}
+            <form class="card" method="post" enctype="multipart/form-data">
+                <div class="card-header">
+                    <p class="lead">Upload an image</p>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                      <label for="imageId">Image</label>
+                      <input type="file" name="file" class="form-control-file" name="imageId" id="imageId" placeholder="browse the image" aria-describedby="imageHelp">
+                      <small id="imageHelp" class="form-text text-muted">please select image below 2mb</small>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <img src="https://www.gifcen.com/wp-content/uploads/2021/07/writing-8.gif">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    {% if session['result'] %}
+                            {{session['result']}}
+                    {% else %}
+                            No result found.
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    body{
+        background-image: url('https://media3.giphy.com/media/jaOXKCxtBPLieRLI0c/200.gif');
+    }
+    .container .row .col img{
+        margin-top: 90px;
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row justify-items-center">
+        <div class="col-md-6 mt-5">
+            {% include "notify.html" %}
+            <div class="card">
+               <div class="col-md-4 p-4">
+                <img class="card-img rounded-circle"  src="{{user.avatar(128)}}" alt="{{user.username}}">
+               </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{user.username}}</h4>
+                    {% if user.about_me %}<p class="card-text">{{ user.about_me }}</p>{% endif %}
+                    {% if user.last_seen %}<p class="lead">Last seen on: {{ user.last_seen }}</p>{% endif %}
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="{{ url_for('edit_profile') }}">Edit your profile <i class="fas fa-arrow-right    "></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <img src="https://media2.giphy.com/media/95P1vO6r7rsk0/giphy.gif?cid=790b761184b105d2ca105a79333c92dc29d58c457b1d19b0&rid=giphy.gif&ct=g">
+        </div>
+    </div>
+</div>
+{% endblock %}

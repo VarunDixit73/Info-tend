@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block css %}
+<style>
+    body{
+        background-image: url('https://media3.giphy.com/media/jaOXKCxtBPLieRLI0c/200.gif');
+        
+    }
+    
+    .display-3 {
+        
+        height: 10vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: bolder;
+        color: rgb(19, 42, 160);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 8rem;
+        text-shadow: 2px 2px 4px #000000;
+    }
+    
+</style>
+{% endblock %}
+
+
+{% block body %}
+    
+    <div class="jumbotron" style = "background-image: url('https://media3.giphy.com/media/jaOXKCxtBPLieRLI0c/200.gif');">
+        
+        <h1 class="display-3" style="text-align: center;"><b>Welcome to Info-Tend</b></h1>
+        <hr class="my-2">
+        <br>
+        <br>
+
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/upload">Click Me To Start</a>
+        </p>
+    </div>
+{% endblock %}
+
+
